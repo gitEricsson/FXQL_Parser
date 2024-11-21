@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env.docker
+    depends_on:
+      - postgres
+    networks:
+      - fxql-network
+
+  postgres:
+    image: postgres:14-alpine
+    env_file:
+      - .env.db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - fxql-network
+
+volumes:
+  postgres_data:
+
+networks:
+  fxql-network:
+    driver: bridge
