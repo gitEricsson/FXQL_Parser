@@ -69,6 +69,23 @@ npm run start:dev
 
 ## API Documentation
 
+### Base URL
+
+`http://localhost:3000/api`
+
+### Endpoints
+
+#### 1. Parse FXQL Statement
+
+- **Endpoint**: `/fxql-statements`
+- **Method**: `POST`
+- **Description**: Parses, validates, and saves FXQL statements to the database.
+
+##### Request
+
+- **Content-Type**: `application/json`
+- **Body**:
+
 ### POST /fxql-statements
 
 Parses and stores FXQL statements.
@@ -100,14 +117,27 @@ Parses and stores FXQL statements.
 }
 ```
 
-#### Error Response (400 Bad Request)
+#### Error Responses
 
-```json
-{
-  "message": "Detailed error message",
-  "code": "FXQL-400"
-}
-```
+- **Status Code**: `400 Bad Request`
+
+  - **Response Body**:
+
+  ```json
+  {
+    "message": "Invalid FXQL Statement.",
+    "code": "FXQL-400"
+  }
+  ```
+
+- **Status Code**: `429 Too Many Requests`
+  - **Response Body**:
+  ```json
+  {
+    "message": "Rate limit exceeded.",
+    "code": "FXQL-429"
+  }
+  ```
 
 ## Testing
 
