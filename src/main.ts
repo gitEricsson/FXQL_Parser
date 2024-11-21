@@ -3,7 +3,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as compression from 'compression';
 import { AppModule } from './app.module';
-import * as csurf from 'csurf';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -37,11 +36,6 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-
-  // csurf prevention
-  if (process.env.NODE_ENV === 'production') {
-    app.use(csurf());
-  }
 
   const port = process.env.PORT || 3000;
   await app.listen(port);

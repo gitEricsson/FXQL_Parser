@@ -6,7 +6,6 @@ A NestJS-based Foreign Exchange Query Language (FXQL) Statement Parser that proc
 
 - FXQL statement parsing and validation
 - Singleton Design
-- csurf prevention
 - Response compression
 - PostgreSQL database integration
 - Rate limiting
