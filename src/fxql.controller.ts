@@ -4,7 +4,7 @@ import { FxqlRequestDto, FxqlResponseDto } from './dto/fxql.dto';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('FXQL')
-@Controller('fxql-statements')
+@Controller('')
 export class FxqlController {
   constructor(private readonly fxqlService: FxqlService) {}
 

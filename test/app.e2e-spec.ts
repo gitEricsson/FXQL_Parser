@@ -19,9 +19,9 @@ describe('FXQL (e2e)', () => {
     await app.close();
   });
 
-  it('/fxql-statements (POST) - should handle valid request', () => {
+  it('(POST) - should handle valid request', () => {
     return request(app.getHttpServer())
-      .post('/fxql-statements')
+      .post('')
       .send({
         FXQL: 'USD-GBP {\n BUY 0.85\n SELL 0.90\n CAP 10000\n}',
       })
@@ -32,11 +32,11 @@ describe('FXQL (e2e)', () => {
       });
   });
 
-  it('/fxql-statements (POST) - should enforce rate limiting', async () => {
+  it('(POST) - should enforce rate limiting', async () => {
     const promises = Array(101)
       .fill(null)
       .map(() =>
-        request(app.getHttpServer()).post('/fxql-statements').send({
+        request(app.getHttpServer()).post('').send({
           FXQL: 'USD-GBP {\n BUY 0.85\n SELL 0.90\n CAP 10000\n}',
         }),
       );

@@ -43,7 +43,7 @@ cp .env.example .env
 docker-compose -f docker-compose.yml up --build -d
 ```
 
-The application will be available at `http://127.0.0.1:3000/fxql-statements`.
+The application will be available at `http://127.0.0.1:3000`.
 
 ### Local Development
 
@@ -76,7 +76,7 @@ npm run start:dev
 
 #### 1. Parse FXQL Statement
 
-- **Endpoint**: `/fxql-statements`
+- **Endpoint**: `http://localhost:3000/`
 - **Method**: `POST`
 - **Description**: Parses, validates, and saves FXQL statements to the database.
 
@@ -85,7 +85,7 @@ npm run start:dev
 - **Content-Type**: `application/json`
 - **Body**:
 
-### POST /fxql-statements
+### POST
 
 Parses and stores FXQL statements.
 
